@@ -5,7 +5,11 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
-const navLinks = [
+type NavLink =
+  | { href: string; label: string }
+  | { label: string; children: { href: string; label: string }[] }
+
+const navLinks: NavLink[] = [
   { href: '/', label: 'Início' },
   {
     label: 'Produtos',

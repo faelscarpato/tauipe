@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-dark-gray/20;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-safety-yellow ring-offset-2 ring-offset-navy rounded-sm;
+  }
+
+  /* Font face para Geist (local) */
+  @font-face {
+    font-family: 'Geist';
+    src: local('Geist'), local('Geist-Regular');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Geist';
+    src: local('Geist Medium'), local('Geist-Medium');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Geist';
+    src: local('Geist Bold'), local('Geist-Bold');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-brand-blue text-off-white font-mono text-sm uppercase tracking-widest font-bold rounded-sm hover:bg-brand-blue/90 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-safety-yellow focus:ring-offset-navy;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-tech-gray text-navy font-mono text-sm uppercase tracking-widest font-bold rounded-sm hover:bg-navy hover:text-off-white hover:border-navy transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-safety-yellow;
+  }
+
+  .btn-safety {
+    @apply px-6 py-3 bg-safety-yellow text-navy font-mono text-sm uppercase tracking-widest font-bold rounded-sm hover:bg-safety-yellow/90 transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-safety-yellow focus:ring-offset-navy shadow-offset-sm;
+  }
+
+  .safety-stripe {
+    @apply bg-safety-yellow text-navy border-y-2 border-navy;
+  }
+
+  .label-tech {
+    @apply font-mono text-xs uppercase tracking-widest;
+  }
+}
